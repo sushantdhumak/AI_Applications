@@ -5,7 +5,6 @@
 import streamlit as st  # to create web applications with Python
 import ollama           # to interact with Ollama models (in this case, Gemma-3)
 from PIL import Image   # for image processing
-import io               # for handling binary I/O operations
 import base64           # for encoding and decoding binary data
 
 
@@ -115,3 +114,6 @@ else:
 
 # Footer
 st.markdown("---")
+
+
+# -----------------------------------------------
