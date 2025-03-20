@@ -94,18 +94,24 @@ with st.sidebar:
                         options={"timeout": 120}
                     )
 
-                    st.session_state['ocr_result'] = response.message.content
+                    # Stores the extracted text result in the session state.
+                    st.session_state['ocr_result'] = response.message.content 
 
                 except Exception as e:
                     st.error(f"Error processing image: {str(e)}")
 
 
+# -----------------------------------------------
 # Main content area for results
+# -----------------------------------------------
 
+# If OCR results exist in the session state, displays them formatted as Markdown.
 if 'ocr_result' in st.session_state:
     st.markdown(st.session_state['ocr_result'])
 else:
+    # If no results exist yet, displays an informational message.
     st.info("Upload an image and click 'Extract Text' to see the results here.")
+
 
 # Footer
 st.markdown("---")
