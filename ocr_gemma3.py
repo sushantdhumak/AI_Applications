@@ -2,6 +2,7 @@
 # OCR with Gemma-3
 # ===============================================
 
+
 import streamlit as st  # to create web applications with Python
 import ollama           # to interact with Ollama models (in this case, Gemma-3)
 from PIL import Image   # for image processing
@@ -28,12 +29,12 @@ st.set_page_config(
 # -----------------------------------------------
 
 st.markdown("""
-    # <img src="data:image/png;base64,{}" width="50" style="vertical-align: -12px;"> Gemma-3 OCR
-""".format(base64.b64encode(open("./gemma3.jpg", "rb").read()).decode()), unsafe_allow_html=True)
+    # <img src="data:image/png;base64,{}" width="100" style="vertical-align: -12px;"> OCR with Gemma-3 
+    """.format(base64.b64encode(open("./gemma3.jpg", "rb").read()).decode()), unsafe_allow_html=True)
 
 
 # -----------------------------------------------
-# Add clear button to top right
+# Creates two columns with a 6:1 ratio for layout purposes.
 
 col1, col2 = st.columns([6,1])
 
@@ -45,7 +46,7 @@ col1, col2 = st.columns([6,1])
 # -----------------------------------------------
 
 with col2:
-    if st.button("Clear 🗑️"):
+    if st.button("Clear Results"):
         if 'ocr_result' in st.session_state:
             del st.session_state['ocr_result']
         st.rerun()
@@ -67,7 +68,8 @@ st.markdown("---") # Adds a horizontal divider line
 
 with st.sidebar:
     st.header("Upload Image") # Adds a header to the sidebar
-    uploaded_file = st.file_uploader("Choose an image...", type=['png', 'jpg', 'jpeg']) # Adds a file uploader to the sidebar
+    st.markdown("---")
+    uploaded_file = st.file_uploader("Select an image...", type=['png', 'jpg', 'jpeg']) # Adds a file uploader to the sidebar
 
     if uploaded_file is not None: # Checks if a file has been uploaded
         # Display the uploaded image
