@@ -70,3 +70,10 @@ Gemma-3 OCR is a Streamlit web application that leverages the Gemma-3 Vision mod
 This project uses the Gemma-3 Vision model, developed by Google DeepMind and made available through Ollama.
 
 ---
+
+## Output
+
+![image](https://github.com/user-attachments/assets/aae8f6a6-e21b-4370-9e8b-70762123bed9)
+
+---
+
